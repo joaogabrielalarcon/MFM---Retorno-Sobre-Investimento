@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MFM - Retorno Sobre Investimento Paisagístico</title>
+<meta property="og:title" content="MFM - Retorno Sobre Investimento Paisagístico">
+<meta property="og:description" content="Maria Fernanda Marques Paisagismo Ecológico — o argumento científico para incorporadores que querem vender mais caro, mais rápido e com mais margem.">
+<meta property="og:site_name" content="Maria Fernanda Marques Paisagismo Ecológico">
+<meta property="og:image" content="https://mfm-roi.acasademaria.com/MFMSITE.jpg">
+<meta name="description" content="Maria Fernanda Marques Paisagismo Ecológico — o argumento científico para incorporadores que querem vender mais caro, mais rápido e com mais margem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── PALETA OFICIAL ─────────────────────────────── */
+:root {
+  --nude:        #fff0e5;
+  --terra:       #9e3722;
+  --terra-dark:  #6b2216;
+  --terra-mid:   #c95a40;
+  --terra-soft:  #e8b5a8;
+  --terra-faint: #f7e8e4;
+  --nude-dark:   #e4c4aa;
+  --nude-mid:    #c9a080;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 300;
+  background: var(--nude);
+  color: var(--terra-dark);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color:var(--terra); text-decoration:none; border-bottom:1px solid var(--terra-soft); transition:color .2s,border-color .2s; }
+a:hover { color:var(--terra-dark); border-color:var(--terra); }
+
+/* ── ANIMAÇÕES DE SCROLL ────────────────────────── */
+/* Estado inicial — elementos invisíveis / deslocados */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.pop {
+  opacity: 0;
+  transform: scale(.94);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.34,1.56,.64,1);
+}
+/* Quando entra na viewport */
+.reveal.visible,
+.reveal.pop.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* Delay escalonado para grids */
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .18s; }
+.reveal-d3 { transition-delay: .28s; }
+.reveal-d4 { transition-delay: .38s; }
+.reveal-d5 { transition-delay: .10s; }
+.reveal-d6 { transition-delay: .20s; }
+
+/* ── CAPA ───────────────────────────────────────── */
+.cover {
+  background: var(--terra);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 48px 120px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 85%, rgba(0,0,0,.2) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 90% 10%, rgba(0,0,0,.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.cover-topline {
+  position: absolute; top:0; left:50%; transform:translateX(-50%);
+  width:1px; height:56px;
+  background: linear-gradient(to bottom, transparent, rgba(255,240,229,.35));
+}
+.cover-inner {
+  position: relative; z-index: 2;
+  max-width: 680px;
+  display: flex; flex-direction: column; align-items: center;
+}
+
+/* wordmark */
+.cover-wordmark { margin-bottom: 44px; animation: fadeDown .9s ease both; }
+.cover-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; font-weight: 400;
+  letter-spacing: 9px; text-transform: uppercase;
+  color: var(--nude); line-height: 1.6;
+}
+.cover-sub-brand {
+  font-size: 8.5px; font-weight: 400;
+  letter-spacing: 6px; text-transform: uppercase;
+  color: rgba(255,240,229,.5); margin-top: 4px;
+}
+
+.cover-rule {
+  width: 32px; height: 1px;
+  background: rgba(255,240,229,.3);
+  margin-bottom: 40px;
+  animation: fadeIn 1s .3s ease both;
+}
+
+/* headline */
+.cover h1 { animation: fadeUp .9s .4s ease both; }
+.cover-h1-main {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 300;
+  color: var(--nude);
+  line-height: 1.1;
+  letter-spacing: -.2px;
+  margin-bottom: 20px;
+}
+.cover-h1-em {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,240,229,.72);
+  line-height: 1.1;
+}
+
+/* hint discreto */
+.cover-hint {
+  margin-top: 52px;
+  font-size: 10px; font-weight: 300;
+  color: rgba(255,240,229,.35);
+  letter-spacing: 1px;
+  animation: fadeIn 1s 1s ease both;
+}
+
+.cover-scroll {
+  position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: rgba(255,240,229,.35); font-size: 9px; letter-spacing: 4px;
+  text-transform: uppercase; font-weight: 500; border: none;
+  animation: fadeIn 1s 1.2s ease both;
+}
+.cover-scroll::after {
+  content: ''; width:1px; height:32px;
+  background: linear-gradient(to bottom, rgba(255,240,229,.35), transparent);
+  animation: sl 2.4s ease-in-out infinite;
+}
+
+@keyframes fadeDown  { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp    { from{opacity:0;transform:translateY(20px)}  to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn    { from{opacity:0} to{opacity:1} }
+@keyframes sl        { 0%,100%{opacity:.25} 50%{opacity:.65} }
+
+/* ── LAYOUT ─────────────────────────────────────── */
+.sec    { max-width: 880px; margin:0 auto; padding: 88px 48px; }
+.sec-sm { max-width: 660px; margin:0 auto; padding: 88px 48px; }
+
+.bg-nude  { background: var(--nude); }
+.bg-terra { background: var(--terra); }
+
+/* ── TIPOGRAFIA ─────────────────────────────────── */
+.eyebrow { display:block; font-size:9px; font-weight:500; letter-spacing:5px; text-transform:uppercase; margin-bottom:18px; }
+.on-nude .eyebrow { color: var(--terra-mid); }
+.on-terra .eyebrow { color: rgba(255,240,229,.5); }
+
+.sec-num { font-family:'Cormorant Garamond',serif; font-size:60px; font-weight:300; line-height:1; display:block; margin-bottom:4px; }
+.on-nude .sec-num  { color: var(--nude-dark); }
+.on-terra .sec-num { color: rgba(255,240,229,.18); }
+
+.h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(27px,3.6vw,42px); font-weight:400; line-height:1.14; margin-bottom:26px; }
+.on-nude .h2    { color: var(--terra-dark); }
+.on-nude .h2 em { color: var(--terra); }
+.on-terra .h2    { color: var(--nude); }
+.on-terra .h2 em { color: rgba(255,240,229,.72); }
+
+.lead { font-size:15px; font-weight:300; line-height:1.85; margin-bottom:16px; }
+.on-nude .lead         { color: var(--terra-mid); }
+.on-nude .lead strong  { color: var(--terra-dark); font-weight:500; }
+.on-terra .lead        { color: rgba(255,240,229,.72); }
+.on-terra .lead strong { color: var(--nude); font-weight:500; }
+
+.note { font-size:11.5px; line-height:1.6; }
+.on-nude .note  { color: var(--nude-dark); }
+.on-terra .note { color: rgba(255,240,229,.45); }
+
+/* ── SEPARADORES ────────────────────────────────── */
+.rule-nude  { height:1px; background:linear-gradient(to right, transparent, var(--nude-dark), transparent); }
+.rule-terra { height:1px; background:linear-gradient(to right, transparent, rgba(255,240,229,.2), transparent); }
+
+/* ── QUOTE ──────────────────────────────────────── */
+.quote { margin:36px 0 24px; padding:24px 28px; border-left:2px solid var(--terra); background:var(--terra-faint); border-radius:0 8px 8px 0; }
+.quote p { font-family:'Cormorant Garamond',serif; font-size:18px; font-style:italic; font-weight:400; color:var(--terra-dark); line-height:1.6; margin-bottom:10px; }
+.quote cite { font-size:10px; font-style:normal; letter-spacing:1.5px; text-transform:uppercase; color:var(--terra-mid); }
+
+/* ── STAT CARDS — sobre nude ────────────────────── */
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin:32px 0; }
+
+.card {
+  background: var(--nude);
+  border:1px solid var(--nude-dark);
+  border-top:2px solid var(--terra);
+  border-radius:2px 2px 8px 8px;
+  padding:24px 20px 20px;
+  cursor:default;
+  /* hover sutil */
+  transition: box-shadow .25s ease;
+}
+.card:hover { box-shadow: 0 12px 40px rgba(158,55,34,.1); }
+.card.b2 { border-top-color:var(--terra-mid); }
+.card.b3 { border-top-color:var(--terra-soft); }
+
+.card-num { font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:400; color:var(--terra); line-height:1; margin-bottom:9px; }
+.card.b2 .card-num { color:var(--terra-mid); }
+.card.b3 .card-num { color:var(--terra-soft); }
+.card-text { font-size:13px; font-weight:300; color:var(--terra-mid); line-height:1.55; margin-bottom:12px; }
+.card-text strong { font-weight:500; color:var(--terra-dark); }
+.card-ref { font-size:10px; color:var(--nude-dark); }
+.card-ref a { font-size:10px; color:var(--terra-mid); border-bottom:1px dotted var(--terra-soft); }
+
+/* ── STAT CARDS — sobre terra ───────────────────── */
+.card-inv {
+  background: rgba(255,240,229,.09);
+  border:1px solid rgba(255,240,229,.15);
+  border-top:2px solid var(--nude);
+  border-radius:2px 2px 8px 8px;
+  padding:24px 20px 20px;
+  cursor:default;
+  transition: background .25s ease;
+}
+.card-inv:hover { background:rgba(255,240,229,.14); }
+.card-inv.b2 { border-top-color:rgba(255,240,229,.55); }
+.card-inv.b3 { border-top-color:rgba(255,240,229,.28); }
+.card-inv .card-num  { color:var(--nude); }
+.card-inv.b2 .card-num { color:rgba(255,240,229,.7); }
+.card-inv.b3 .card-num { color:rgba(255,240,229,.45); }
+.card-inv .card-text { color:rgba(255,240,229,.62); }
+.card-inv .card-text strong { color:var(--nude); }
+.card-inv .card-ref  { color:rgba(255,240,229,.3); }
+.card-inv .card-ref a { color:rgba(255,240,229,.5); border-bottom-color:rgba(255,240,229,.2); }
+
+/* ── DARK BOX ───────────────────────────────────── */
+.dbox { background:var(--terra); border-radius:10px; padding:36px 40px; margin:40px 0; position:relative; overflow:hidden; }
+.dbox::after { content:''; position:absolute; bottom:-48px; right:-48px; width:180px; height:180px; border-radius:50%; background:rgba(0,0,0,.07); pointer-events:none; }
+.dbox-eye { font-size:9px; font-weight:500; letter-spacing:5px; text-transform:uppercase; color:rgba(255,240,229,.5); margin-bottom:12px; display:block; position:relative; z-index:1; }
+.dbox-title { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:400; color:var(--nude); line-height:1.25; margin-bottom:11px; position:relative; z-index:1; }
+.dbox-body { font-size:14px; font-weight:300; color:rgba(255,240,229,.68); line-height:1.85; position:relative; z-index:1; }
+.dbox-body strong { color:var(--nude); font-weight:500; }
+.dbox-body em { color:rgba(255,240,229,.85); font-style:italic; }
+
+/* box invertido — dentro de seção terra */
+.ibox { background:rgba(255,240,229,.09); border:1px solid rgba(255,240,229,.15); border-radius:10px; padding:32px 36px; margin:36px 0; }
+.ibox-eye { font-size:9px; font-weight:500; letter-spacing:5px; text-transform:uppercase; color:rgba(255,240,229,.45); margin-bottom:12px; display:block; }
+.ibox-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:400; color:var(--nude); line-height:1.25; margin-bottom:10px; }
+.ibox-body { font-size:14px; font-weight:300; color:rgba(255,240,229,.65); line-height:1.85; }
+.ibox-body strong { color:var(--nude); font-weight:500; }
+
+/* ── PULL QUOTE ─────────────────────────────────── */
+.pull { padding:20px 26px; margin:28px 0; border-left:2px solid var(--terra-mid); background:var(--terra-faint); border-radius:0 8px 8px 0; }
+.pull p { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; font-weight:400; color:var(--terra-dark); line-height:1.6; margin-bottom:8px; }
+.pull cite { font-size:10px; font-style:normal; letter-spacing:1.5px; text-transform:uppercase; color:var(--terra-mid); }
+
+/* ── TABELA ─────────────────────────────────────── */
+.tbl { width:100%; border-collapse:collapse; margin:16px 0; font-size:13.5px; }
+.tbl thead th { background:var(--terra); color:var(--nude); padding:11px 16px; text-align:left; font-weight:400; font-size:10px; letter-spacing:2px; text-transform:uppercase; }
+.tbl thead th:last-child { text-align:right; }
+.tbl tbody tr:nth-child(odd)  { background:var(--nude); }
+.tbl tbody tr:nth-child(even) { background:var(--terra-faint); }
+.tbl tbody td { padding:11px 16px; color:var(--terra-mid); font-weight:300; border-bottom:1px solid var(--nude-dark); }
+.tbl tbody td:last-child { text-align:right; font-weight:500; color:var(--terra); }
+.tbl tr.star td { background:var(--terra) !important; color:var(--nude); font-weight:500; border:none; }
+.tbl tr.star td:last-child { color:rgba(255,240,229,.8); font-size:14px; }
+
+/* ── NEURO CARDS ────────────────────────────────── */
+.ngrid { display:grid; grid-template-columns:repeat(3,1fr); gap:11px; margin:32px 0; }
+.ncard {
+  border:1px solid var(--nude-dark); border-radius:8px;
+  padding:18px 15px 15px; background:var(--nude);
+  transition:box-shadow .25s;
+  cursor:default; position:relative; overflow:hidden;
+}
+.ncard::after { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--terra); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
+.ncard.down::after { background:var(--terra-mid); }
+.ncard:hover { box-shadow:0 12px 36px rgba(158,55,34,.09); }
+.ncard:hover::after { transform:scaleX(1); }
+.narrow { font-size:18px; display:block; margin-bottom:5px; }
+.ncard.up .narrow   { color:var(--terra); }
+.ncard.down .narrow { color:var(--terra-mid); }
+.nval { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; line-height:1.2; margin-bottom:3px; }
+.ncard.up .nval   { color:var(--terra); }
+.ncard.down .nval { color:var(--terra-mid); }
+.nname { font-size:9px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--terra-dark); margin-bottom:6px; }
+.ndesc { font-size:11px; color:var(--terra-mid); line-height:1.5; font-weight:300; }
+
+/* ── CADEIA ─────────────────────────────────────── */
+.chain { margin:44px 0; }
+.ci { display:flex; gap:18px; padding:16px 0; position:relative; align-items:flex-start; }
+.ci:not(:last-child)::after { content:''; position:absolute; left:15px; top:50px; bottom:-16px; width:1px; background:linear-gradient(to bottom, var(--terra-soft), var(--nude-dark)); }
+.cdot { width:32px; height:32px; border-radius:50%; background:var(--terra); color:var(--nude); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:500; flex-shrink:0; position:relative; z-index:1; transition:transform .2s; }
+.ci:hover .cdot { transform:scale(1.1); }
+.ci:nth-child(3) .cdot { background:var(--terra-mid); }
+.ci:nth-child(5) .cdot { background:var(--terra-dark); }
+.ci:last-child   .cdot { background:var(--terra-dark); font-size:13px; }
+.ct { font-size:13.5px; font-weight:500; color:var(--terra-dark); margin-bottom:4px; transition:color .2s; }
+.ci:hover .ct { color:var(--terra); }
+.cb { font-size:13px; color:var(--terra-mid); line-height:1.65; font-weight:300; }
+.cb em { color:var(--terra); font-style:italic; }
+.cref { display:block; margin-top:4px; font-size:10px; color:var(--nude-dark); }
+.cref a { font-size:10px; color:var(--terra-mid); border-bottom:1px dotted var(--terra-soft); }
+
+/* ── ROI CALC ───────────────────────────────────── */
+.roibox { background:var(--terra-faint); border:1px solid var(--nude-dark); border-radius:10px; padding:32px; margin:32px 0; }
+.roibox-title { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:400; color:var(--terra-dark); margin-bottom:22px; }
+.roiline { display:flex; justify-content:space-between; align-items:baseline; gap:16px; padding:11px 0; border-bottom:1px solid var(--nude-dark); }
+.roiline:last-of-type { border-bottom:none; }
+.roil { font-size:13px; color:var(--terra-mid); font-weight:300; }
+.roiv { font-size:13.5px; font-weight:500; color:var(--terra-dark); white-space:nowrap; }
+.roiline.tot .roil { font-weight:500; color:var(--terra-dark); }
+.roiline.tot .roiv { font-size:16px; color:var(--terra); }
+.roicta { background:var(--terra); margin:16px 0 0; padding:15px 20px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; }
+.roicta .roil { color:rgba(255,240,229,.65); font-size:13px; font-weight:400; }
+.roicta .roiv { color:var(--nude); font-size:26px; font-family:'Cormorant Garamond',serif; font-weight:400; }
+
+/* ── SÍNTESE ────────────────────────────────────── */
+.synth { background:var(--terra); padding:96px 48px; text-align:center; }
+.synth-stmt { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3.5vw,38px); font-weight:300; color:var(--nude); line-height:1.3; max-width:560px; margin:0 auto 26px; }
+.synth-stmt em { font-style:italic; color:rgba(255,240,229,.68); }
+.synth-rule { width:28px; height:1px; background:rgba(255,240,229,.28); margin:0 auto 26px; }
+.synth-body { font-size:14px; font-weight:300; color:rgba(255,240,229,.62); line-height:1.85; max-width:440px; margin:0 auto; }
+
+/* ── FOOTER ─────────────────────────────────────── */
+.footer { background:var(--terra); border-top:1px solid rgba(255,240,229,.07); padding:60px 48px; }
+.footer-inner { max-width:680px; margin:0 auto; }
+.footer-brand { font-family:'Cormorant Garamond',serif; font-size:15px; font-weight:400; letter-spacing:6px; color:var(--nude); text-transform:uppercase; text-align:center; margin-bottom:3px; }
+.footer-sub { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:rgba(255,240,229,.4); text-align:center; margin-bottom:48px; }
+.refs-eye { font-size:9px; letter-spacing:5px; text-transform:uppercase; color:rgba(255,240,229,.4); display:block; margin-bottom:14px; text-align:center; }
+.refs { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.refs li { font-size:11px; color:rgba(255,240,229,.45); padding-left:14px; position:relative; line-height:1.6; font-weight:300; }
+.refs li::before { content:'—'; position:absolute; left:0; color:rgba(255,240,229,.25); }
+.refs li strong { color:rgba(255,240,229,.65); font-weight:400; }
+.refs a { font-size:11px; color:rgba(255,240,229,.5); border-bottom:1px dotted rgba(255,240,229,.18); }
+.refs a:hover { color:var(--nude); }
+.foot-rule { width:28px; height:1px; background:rgba(255,240,229,.08); margin:36px auto 18px; }
+.foot-legal { text-align:center; font-size:10px; color:rgba(255,240,229,.25); }
+
+/* ── RESPONSIVO ─────────────────────────────────── */
+@media (max-width: 768px) {
+  .sec, .sec-sm { padding:68px 24px; }
+  .cover { padding:80px 28px 100px; }
+  .synth { padding:72px 24px; }
+  .footer { padding:52px 24px; }
+  .dbox, .ibox { padding:28px 22px; }
+  .roibox { padding:26px 18px; }
+  .ngrid { grid-template-columns:1fr 1fr; }
+  .grid { grid-template-columns:1fr; }
+  .roicta { flex-direction:column; gap:4px; text-align:center; }
+  .tbl { font-size:12px; }
+  .tbl thead th, .tbl tbody td { padding:9px 11px; }
+  .cover-h1-main, .cover-h1-em { font-size: clamp(34px, 9vw, 56px); }
+}
+@media (max-width: 420px) {
+  .ngrid { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ CAPA ══════════════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-topline"></div>
+  <div class="cover-inner">
+
+    <div class="cover-wordmark">
+      <div class="cover-name">Maria Fernanda Marques</div>
+      <div class="cover-sub-brand">Paisagismo Ecológico</div>
+    </div>
+
+    <div class="cover-rule"></div>
+
+    <h1>
+      <span class="cover-h1-main">Paisagismo não é custo.</span>
+      <span class="cover-h1-em">É o investimento com maior<br>retorno do seu empreendimento.</span>
+    </h1>
+
+    <p class="cover-hint">Leia isso se você quer vender mais caro, mais rápido e com mais margem.</p>
+
+  </div>
+  <div class="cover-scroll">Role</div>
+</section>
+
+
+<!-- ══ 01 · O MERCADO ════════════════════════════════════ -->
+<div class="bg-nude on-nude">
+<div class="sec-sm">
+
+  <span class="sec-num reveal">01</span>
+  <span class="eyebrow reveal">O cenário atual</span>
+  <h2 class="h2 reveal">O comprador mudou.<br><em>E os dados comprovam.</em></h2>
+  <p class="lead reveal">
+    Desde a pandemia, o mercado imobiliário de alto padrão brasileiro
+    vive seu melhor ciclo histórico. Mas o que mudou não foi só o volume —
+    foi o critério de compra.
+  </p>
+
+  <div class="quote reveal">
+    <p>"Desde 2020, compradores passaram a colocar no topo da lista áreas verdes,
+    espaços amplos e o uso de materiais ecológicos. O consumidor de imóveis de
+    luxo busca mais do que uma residência: ele procura uma experiência."</p>
+    <cite>— Patriolino Dias de Sousa · Presidente do Sinduscon-CE · 2024</cite>
+  </div>
+
+  <p class="lead reveal">Quatro pesquisas brasileiras confirmam esse movimento:</p>
+
+  <div class="grid">
+    <div class="card reveal pop reveal-d1">
+      <div class="card-num">55,7%</div>
+      <p class="card-text">dos compradores consideram <strong>áreas verdes um critério na decisão de compra</strong> — era 11,16% antes da pandemia. Crescimento de 5×.</p>
+      <p class="card-ref"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10568372/" target="_blank">PMC / Landscape and Urban Planning, 2023</a></p>
+    </div>
+    <div class="card b2 reveal pop reveal-d2">
+      <div class="card-num">58%</div>
+      <p class="card-text">dos incorporadores afirmam que <strong>sustentabilidade agrega valor mensurável ao m²</strong> dos empreendimentos.</p>
+      <p class="card-ref"><a href="https://cte.com.br/blog/esg-sustentabilidade/esg-no-mercado-imobiliario-de-alto-padrao/" target="_blank">ADIT Brasil + Brain, 2025</a></p>
+    </div>
+    <div class="card b3 reveal pop reveal-d3">
+      <div class="card-num">53%</div>
+      <p class="card-text">das empresas imobiliárias acreditam que seus clientes <strong>estão dispostos a pagar mais</strong> por projetos com compromisso sustentável.</p>
+      <p class="card-ref"><a href="https://cte.com.br/blog/esg-sustentabilidade/esg-no-mercado-imobiliario-de-alto-padrao/" target="_blank">ADIT Brasil + Brain, 2025</a></p>
+    </div>
+    <div class="card reveal pop reveal-d4">
+      <div class="card-num">29%</div>
+      <p class="card-text">dos compradores nas principais capitais <strong>afirmam espontaneamente</strong> que pagariam mais caro por imóveis sustentáveis.</p>
+      <p class="card-ref"><a href="https://cte.com.br/blog/esg-sustentabilidade/esg-no-mercado-imobiliario-de-alto-padrao/" target="_blank">Offerwise / CTE, 2024</a></p>
+    </div>
+  </div>
+
+  <div class="dbox reveal">
+    <span class="dbox-eye">Conclusão</span>
+    <p class="dbox-title">O comprador já tomou a decisão.</p>
+    <p class="dbox-body">A questão para o incorporador não é <em>se</em> o paisagismo agrega valor.
+    É <strong>qual nível de paisagismo</strong> entrega o maior retorno —
+    e se o investimento está à altura do que o mercado está disposto a pagar.</p>
+  </div>
+
+</div>
+</div>
+
+<div class="rule-nude"></div>
+
+<!-- ══ 02 · ROI ═══════════════════════════════════════════ -->
+<div class="bg-nude on-nude">
+<div class="sec">
+
+  <span class="sec-num reveal">02</span>
+  <span class="eyebrow reveal">O retorno financeiro direto</span>
+  <h2 class="h2 reveal">Quanto vale, em reais,<br><em>um jardim de qualidade?</em></h2>
+
+  <div class="grid" style="grid-template-columns:1fr">
+    <div class="card reveal pop">
+      <div class="card-num" style="font-size:58px">10 a 20%</div>
+      <p class="card-text" style="font-size:15px">
+        <strong>de valorização direta do imóvel</strong> com paisagismo ecológico profissional —
+        dado documentado pela <em>National Association of Realtors</em>,
+        maior associação de profissionais imobiliários do mundo.
+      </p>
+      <p class="card-ref"><a href="https://www.nar.realtor/research-and-statistics/research-reports/remodeling-impact-report-outdoor-features" target="_blank">NAR Remodeling Impact Report · EUA</a></p>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin:8px 0 28px; padding:22px 26px; background:var(--terra-faint); border-radius:8px; border:1px solid var(--nude-dark)">
+    <span class="eyebrow" style="margin-bottom:9px; color:var(--terra-mid)">O impacto da qualidade é mensurável</span>
+    <p class="lead" style="margin-bottom:5px; font-size:15px; color:var(--terra-dark)">
+      A diferença entre médio e excelente representa até
+      <strong style="color:var(--terra); font-size:18px">13% de valorização adicional</strong>
+      no valor do imóvel.
+    </p>
+    <p class="note" style="color:var(--nude-dark)">
+      De médio para bom: +4–5% · De bom para excelente: +6–7% · Total: <strong style="color:var(--terra)">+10 a 13%</strong><br>
+      <a href="https://apexlandscaping.com/does-landscaping-increases-home-value-essential-tips-for-homeowners/" target="_blank">Academic Research / Apex Landscaping Studies</a>
+    </p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:28px">
+    <div class="card b2 reveal pop reveal-d5">
+      <div class="card-num" style="font-size:40px">56,3%</div>
+      <p class="card-text">acreditam que paisagismo pode valorizar o imóvel em <strong>15% ou mais</strong></p>
+      <p class="card-ref"><a href="https://www.yourgreenpal.com/blog/how-much-can-great-landscaping-affect-the-value-of-a-home" target="_blank">Survey · 350 Profissionais Imobiliários</a></p>
+    </div>
+    <div class="card reveal pop reveal-d6">
+      <div class="card-num" style="font-size:40px">22,6%</div>
+      <p class="card-text">estimam valorização de <strong>até 30%</strong> com um projeto de excelência</p>
+      <p class="card-ref"><a href="https://www.yourgreenpal.com/blog/how-much-can-great-landscaping-affect-the-value-of-a-home" target="_blank">Survey · 350 Profissionais Imobiliários</a></p>
+    </div>
+  </div>
+
+  <p class="note reveal" style="padding:13px 18px; background:var(--terra-faint); border-radius:6px; border-left:2px solid var(--nude-dark); color:var(--terra-mid)">
+    O setor imobiliário global confirma: paisagismo supera reforma de cozinha, reforma de banheiro e piscina em retorno sobre investimento —
+    e é o único elemento percebido pelo comprador <em>antes</em> de entrar no imóvel.
+    <span style="display:block; margin-top:4px"><a href="https://www.nar.realtor/research-and-statistics/research-reports/remodeling-impact-report-outdoor-features" target="_blank">NAR/NALP Remodeling Impact Report, 2023</a></span>
+  </p>
+
+</div>
+</div>
+
+<div class="rule-nude"></div>
+
+<!-- ══ 03 · VELOCIDADE — fundo terra ═════════════════════ -->
+<div class="bg-terra on-terra">
+<div class="sec">
+
+  <span class="sec-num reveal">03</span>
+  <span class="eyebrow reveal">Velocidade de venda</span>
+  <h2 class="h2 reveal"><em>Vende mais rápido.</em><br>E isso tem valor financeiro real.</h2>
+  <p class="lead reveal">
+    Para o incorporador, cada semana a mais no ciclo de venda representa
+    <strong>custo real</strong>: capital imobilizado, custo de carregamento, custo de oportunidade.
+  </p>
+
+  <div class="grid">
+    <div class="card-inv reveal pop reveal-d1">
+      <div class="card-num">97%</div>
+      <p class="card-text">dos corretores consideram o <strong>impacto visual externo</strong> importante ou muito importante para atrair compradores</p>
+      <p class="card-ref"><a href="https://www.nar.realtor/research-and-statistics/research-reports/remodeling-impact-report-outdoor-features" target="_blank">NAR Remodeling Impact Report</a></p>
+    </div>
+    <div class="card-inv b2 reveal pop reveal-d2">
+      <div class="card-num">92%</div>
+      <p class="card-text">sugerem ativamente que vendedores <strong>melhorem o paisagismo</strong> antes de listar o imóvel para venda</p>
+      <p class="card-ref"><a href="https://www.nar.realtor/research-and-statistics/research-reports/remodeling-impact-report-outdoor-features" target="_blank">NAR Remodeling Impact Report</a></p>
+    </div>
+    <div class="card-inv b3 reveal pop reveal-d3">
+      <div class="card-num">17%</div>
+      <p class="card-text">reportam que uma <strong>revitalização paisagística</strong> foi o fator determinante para fechar uma venda específica</p>
+      <p class="card-ref"><a href="https://www.homelight.com/blog/does-landscaping-add-value/" target="_blank">NAR / HomeLight</a></p>
+    </div>
+  </div>
+
+  <div class="ibox reveal">
+    <span class="ibox-eye">Por que o jardim acelera a venda</span>
+    <p class="ibox-title">A âncora de valor começa antes da porta.</p>
+    <p class="ibox-body">
+      Compradores formam opinião sobre um imóvel <strong>nos primeiros segundos de visita</strong>.
+      A área externa é o único elemento visível antes de qualquer conversa.
+      Um jardim bem executado cria uma âncora de valor positiva que
+      <strong>persiste por toda a negociação</strong>.
+    </p>
+  </div>
+
+</div>
+</div>
+
+<div class="rule-terra"></div>
+
+<!-- ══ 04 · NEUROCIÊNCIA ══════════════════════════════════ -->
+<div class="bg-nude on-nude">
+<div class="sec">
+
+  <span class="sec-num reveal">04</span>
+  <span class="eyebrow reveal">A ciência por trás da decisão</span>
+  <h2 class="h2 reveal">O que um jardim belo<br><em>faz ao corpo</em> do seu comprador.</h2>
+  <p class="lead reveal">
+    40 anos de pesquisa científica — liderada pelo Dr. <strong>Roger Ulrich</strong> (Texas A&amp;M University)
+    e pelos Profs. <strong>Rachel e Stephen Kaplan</strong> (University of Michigan) —
+    documentam com precisão fisiológica o que acontece quando um ser humano
+    entra em contato com natureza de qualidade.
+  </p>
+
+  <p class="reveal" style="font-size:10px; font-weight:500; letter-spacing:3px; color:var(--terra); text-transform:uppercase; margin:32px 0 14px">
+    Mudanças documentadas em minutos de exposição:
+  </p>
+
+  <div class="ngrid">
+    <div class="ncard up reveal pop reveal-d1"><span class="narrow">↑</span><div class="nval">Serotonina</div><div class="nname">Bem-estar</div><p class="ndesc">Eleva o neurotransmissor da estabilidade emocional, comparável ao exercício físico.</p></div>
+    <div class="ncard up reveal pop reveal-d2"><span class="narrow">↑</span><div class="nval">Dopamina</div><div class="nname">Prazer e motivação</div><p class="ndesc">Ativa o sistema de recompensa, gerando associação positiva com o espaço.</p></div>
+    <div class="ncard up reveal pop reveal-d3"><span class="narrow">↑</span><div class="nval">Ocitocina</div><div class="nname">Confiança</div><p class="ndesc">Aumenta segurança — fator crítico na decisão de "este é o meu lar".</p></div>
+    <div class="ncard down reveal pop reveal-d1"><span class="narrow">↓</span><div class="nval">Cortisol</div><div class="nname">Estresse</div><p class="ndesc">Queda do hormônio do estresse, medida em estudos com análise salivar.</p></div>
+    <div class="ncard down reveal pop reveal-d2"><span class="narrow">↓</span><div class="nval">Pressão arterial</div><div class="nname">Relaxamento</div><p class="ndesc">Queda da pressão diastólica — experimento com 112 participantes.</p></div>
+    <div class="ncard down reveal pop reveal-d3"><span class="narrow">↓</span><div class="nval">Tensão muscular</div><div class="nname">Relaxamento físico</div><p class="ndesc">Redução de tensão muscular — medições fisiológicas objetivas.</p></div>
+  </div>
+
+  <div class="grid">
+    <div class="card reveal pop reveal-d1">
+      <div class="card-num">4 min</div>
+      <p class="card-text">é o tempo para início da <strong>recuperação fisiológica do estresse</strong> após exposição a natureza — n=120, medido por pressão arterial e frequência de pulso.</p>
+      <p class="card-ref"><a href="https://psych.utah.edu/_resources/documents/psych4130/Ulrich%20et%20al_1991.pdf" target="_blank">Ulrich et al., 1991 — Journal of Environmental Psychology</a></p>
+    </div>
+    <div class="card b2 reveal pop reveal-d2">
+      <div class="card-num">22%</div>
+      <p class="card-text"><strong>menos analgésicos</strong> usados por pacientes com vista para árvores versus parede de tijolos — experimento controlado.</p>
+      <p class="card-ref"><a href="https://www.science.org/doi/10.1126/science.6143402" target="_blank">Ulrich, 1984 — Science</a></p>
+    </div>
+  </div>
+
+  <div class="pull reveal">
+    <p>"O comprador que visita um empreendimento com jardim de qualidade passa a maior parte da visita em estado de menor estresse, maior conforto e ativação do sistema de recompensa — o estado ideal para uma decisão de compra favorável."</p>
+    <cite>— Síntese: Ulrich, 1991 + Kaplan &amp; Kaplan, 1989</cite>
+  </div>
+
+  <div class="grid">
+    <div class="card b2 reveal pop reveal-d1">
+      <div class="card-num">+12%</div>
+      <p class="card-text"><strong>maior disposição a pagar</strong> em ambientes com arborização de qualidade. A natureza eleva o valor percebido de tudo ao redor.</p>
+      <p class="card-ref"><a href="https://naturewithin.info/CityBiz/BizTreesAll_JFor.pdf" target="_blank">Wolf, K.L. — Journal of Forestry, 2005</a></p>
+    </div>
+    <div class="card reveal pop reveal-d2">
+      <div class="card-num">+30%</div>
+      <p class="card-text"><strong>maior percepção de qualidade</strong> em ambientes arborizados. O jardim eleva o valor percebido do imóvel inteiro.</p>
+      <p class="card-ref"><a href="https://naturewithin.info/CityBiz/BizTreesAll_JFor.pdf" target="_blank">Wolf, K.L. — Journal of Forestry, 2005</a></p>
+    </div>
+    <div class="card b3 reveal pop" style="grid-column:1/-1">
+      <div class="card-num" style="font-size:42px">80%</div>
+      <p class="card-text"><strong>dos compradores sentem maior conforto</strong> em imóveis com paisagismo bem estabelecido — e 30% percebem o imóvel como de maior qualidade pela área externa.</p>
+      <p class="card-ref"><a href="https://www.yourgreenpal.com/blog/how-much-can-great-landscaping-affect-the-value-of-a-home" target="_blank">Survey · Profissionais Imobiliários EUA</a></p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="rule-nude"></div>
+
+<!-- ══ 05 · CADEIA ════════════════════════════════════════ -->
+<div class="bg-nude on-nude">
+<div class="sec">
+
+  <span class="sec-num reveal">05</span>
+  <span class="eyebrow reveal">A lógica completa</span>
+  <h2 class="h2 reveal">Do jardim à assinatura<br>do contrato:<br><em>a cadeia de causa e efeito.</em></h2>
+  <p class="lead reveal">Cada elo é sustentado por ciência publicada em revistas internacionais com revisão por pares.</p>
+
+  <div class="chain">
+    <div class="ci reveal reveal-d1"><div class="cdot">1</div><div><div class="ct">Jardim ecológico de qualidade — primeira impressão</div><div class="cb">O comprador forma opinião sobre o imóvel antes de entrar. Um jardim belo cria <em>âncora de valor positiva que persiste por toda a negociação.</em></div><a class="cref" href="https://teamarmstrong.com/blog/the-psychology-of-homebuying-emotional-factors-that-influence-decisions" target="_blank">Psychology of Homebuying — Emotional Factors</a></div></div>
+    <div class="ci reveal reveal-d2"><div class="cdot">2</div><div><div class="ct">Ativação parassimpática em 4 minutos</div><div class="cb">Cortisol cai. Pressão arterial reduz. Tensão muscular diminui. <em>O corpo entra em modo de receptividade — não de defesa.</em></div><a class="cref" href="https://psych.utah.edu/_resources/documents/psych4130/Ulrich%20et%20al_1991.pdf" target="_blank">Ulrich et al., 1991 — Journal of Environmental Psychology</a></div></div>
+    <div class="ci reveal reveal-d3"><div class="cdot">3</div><div><div class="ct">Liberação de serotonina, dopamina e ocitocina</div><div class="cb">O sistema de recompensa é ativado. O comprador associa <em>prazer, bem-estar e confiança ao espaço</em> — neurologicamente, antes de qualquer análise racional.</div><a class="cref" href="https://www.health.state.mn.us/communities/mentalhealth/nature.html" target="_blank">Minnesota Dept. of Health — Nature and Mental Health</a></div></div>
+    <div class="ci reveal reveal-d4"><div class="cdot">4</div><div><div class="ct">Percepção de qualidade elevada em tudo ao redor</div><div class="cb">+30% na avaliação de qualidade em ambientes com vegetação. <em>O jardim eleva o valor percebido do imóvel, do corretor e do preço pedido.</em></div><a class="cref" href="https://naturewithin.info/CityBiz/BizTreesAll_JFor.pdf" target="_blank">Wolf, K.L. — Journal of Forestry, 2005</a></div></div>
+    <div class="ci reveal reveal-d1"><div class="cdot">5</div><div><div class="ct">Menor resistência na negociação</div><div class="cb">Exposição à natureza reduz comportamentos defensivos. <em>+12% de disposição a pagar em ambientes com arborização de qualidade.</em></div><a class="cref" href="https://myscp.onlinelibrary.wiley.com/doi/full/10.1002/jcpy.1456" target="_blank">Journal of Consumer Psychology, 2025 — University of Chicago</a></div></div>
+    <div class="ci reveal reveal-d2"><div class="cdot">6</div><div><div class="ct">Decisão favorável — mais rápida e com menos desconto</div><div class="cb"><em>Ciclo de venda mais curto, menor pressão por desconto, fechamento mais próximo do preço pedido</em> — e comprador satisfeito que indica o empreendimento.</div></div></div>
+    <div class="ci reveal reveal-d3"><div class="cdot">✓</div><div><div class="ct">Pós-compra: satisfação e indicação</div><div class="cb"><strong>68% dos proprietários</strong> reportam maior desejo de passar tempo em casa após melhorias paisagísticas — satisfação sustentada e propensão à indicação.</div><a class="cref" href="https://www.nar.realtor/research-and-statistics/research-reports/remodeling-impact-report-outdoor-features" target="_blank">NAR Remodeling Impact Report, 2023</a></div></div>
+  </div>
+
+</div>
+</div>
+
+<div class="rule-nude"></div>
+
+<!-- ══ 06 · ROI CALC ══════════════════════════════════════ -->
+<div class="bg-nude on-nude">
+<div class="sec">
+
+  <span class="sec-num reveal">06</span>
+  <span class="eyebrow reveal">A matemática do retorno</span>
+  <h2 class="h2 reveal">Para um imóvel<br>de <em>R$ 10.000.000</em></h2>
+  <p class="lead reveal">
+    Premissa conservadora — valorização de 10%, abaixo da média de 15–20% documentada pelo NAR.
+    O investimento em paisagismo varia conforme a área verde do empreendimento.
+  </p>
+
+  <div class="roibox reveal">
+    <h3 class="roibox-title">Simulação — Paisagismo Ecológico Profissional</h3>
+    <div class="roiline"><span class="roil">Valor do imóvel (VGV unitário)</span><span class="roiv">R$ 10.000.000</span></div>
+    <div class="roiline"><span class="roil">Investimento em paisagismo (varia por área verde)</span><span class="roiv">R$ 200k – R$ 600k</span></div>
+    <div class="roiline"><span class="roil">Valorização conservadora documentada (10%)</span><span class="roiv" style="color:var(--terra)">+ R$ 1.000.000</span></div>
+    <div class="roiline"><span class="roil">Redução no ciclo de venda</span><span class="roiv">30–60 dias</span></div>
+    <div class="roiline tot"><span class="roil">Lucro líquido adicional por unidade</span><span class="roiv">R$ 400k – R$ 800k</span></div>
+    <div class="roicta"><span class="roil">ROI sobre o investimento</span><span class="roiv">200 – 400%</span></div>
+  </div>
+
+  <p class="note reveal" style="margin-bottom:24px; color:var(--nude-dark)">
+    * Premissa conservadora de 10%, abaixo da média de 15–20% documentada pelo NAR. O investimento varia conforme a área verde e o projeto — entre em contato para uma análise específica do seu empreendimento.
+  </p>
+
+  <div class="reveal" style="padding:22px 26px; background:var(--terra-faint); border-radius:8px; border:1px solid var(--nude-dark)">
+    <span class="eyebrow" style="margin-bottom:11px; color:var(--terra-mid)">Cenários por nível — Imóvel R$ 10.000.000</span>
+    <table class="tbl">
+      <thead><tr><th>Nível de Paisagismo</th><th>Valorização</th><th>Valor adicionado</th></tr></thead>
+      <tbody>
+        <tr><td>Paisagismo genérico</td><td>Referência</td><td>Referência</td></tr>
+        <tr><td>Paisagismo de qualidade</td><td>+4% a +5%</td><td>+R$ 400k – R$ 500k</td></tr>
+        <tr class="star"><td>MFM — Ecológico Profissional</td><td>+10% a +13%</td><td>+R$ 1.000.000 – R$ 1.300.000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ══ SÍNTESE ════════════════════════════════════════════ -->
+<section class="synth">
+  <p class="synth-stmt reveal">
+    Um jardim ecológico de qualidade<br>
+    <strong style="color:var(--nude); font-style:normal; font-weight:500; text-decoration:underline; text-underline-offset:4px; text-decoration-color:rgba(255,240,229,.45)">não é estética.</strong><br>
+    É o ativo com maior retorno<br>disponível no seu empreendimento.
+  </p>
+  <div class="synth-rule reveal"></div>
+  <p class="synth-body reveal">
+    Ele aumenta o valor do imóvel. Acelera a venda. Reduz a resistência do comprador.
+    Sustenta a satisfação pós-compra. E entrega o argumento ESG mais tangível que existe —
+    visível e sentido no primeiro segundo de contato com o empreendimento.
+  </p>
+</section>
+
+
+<!-- ══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-brand">Maria Fernanda Marques</p>
+    <p class="footer-sub">Paisagismo Ecológico · Jarinu, SP</p>
+
+    <span class="refs-eye">Referências verificáveis</span>
+    <ul class="refs">
+      <li><strong>NAR/NALP Remodeling Impact Report, 2023</strong> — <a href="https://www.nar.realtor/research-and-statistics/research-reports/remodeling-impact-report-outdoor-features" target="_blank">nar.realtor</a> · ROI de melhorias externas. EUA.</li>
+      <li><strong>White et al., 2019</strong> — <a href="https://www.nature.com/articles/s41598-019-44097-3" target="_blank">Scientific Reports, Nature</a> · "120 minutes a week in nature." n=19.806.</li>
+      <li><strong>Ulrich, R.S. et al., 1991</strong> — <a href="https://psych.utah.edu/_resources/documents/psych4130/Ulrich%20et%20al_1991.pdf" target="_blank">Journal of Environmental Psychology</a> · "Stress recovery during exposure to natural and urban environments." n=120.</li>
+      <li><strong>Ulrich, R.S., 1984</strong> — <a href="https://www.science.org/doi/10.1126/science.6143402" target="_blank">Science, vol. 224</a> · "View through a window may influence recovery from surgery."</li>
+      <li><strong>Wolf, K.L., 2005</strong> — <a href="https://naturewithin.info/CityBiz/BizTreesAll_JFor.pdf" target="_blank">Journal of Forestry, 103(8)</a> · "Business District Streetscapes, Trees and Consumer Response." Univ. Washington.</li>
+      <li><strong>ADIT Brasil + Brain, 2025</strong> — <a href="https://cte.com.br/blog/esg-sustentabilidade/esg-no-mercado-imobiliario-de-alto-padrao/" target="_blank">CTE / ESG no Mercado Imobiliário</a> · Dados brasileiros sobre sustentabilidade e valor do m².</li>
+      <li><strong>PMC Systematic Review, 2023</strong> — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10568372/" target="_blank">Landscape and Urban Planning</a> · 66 estudos peer-reviewed sobre áreas verdes e valores imobiliários.</li>
+      <li><strong>Rim, N. et al., 2025</strong> — <a href="https://myscp.onlinelibrary.wiley.com/doi/full/10.1002/jcpy.1456" target="_blank">Journal of Consumer Psychology</a> · "Affective, cognitive and social benefits of interacting with nature." Univ. Chicago.</li>
+      <li><strong>Survey · 350 Profissionais Imobiliários</strong> — <a href="https://www.yourgreenpal.com/blog/how-much-can-great-landscaping-affect-the-value-of-a-home" target="_blank">YourGreenPal Research</a> · Percepção de valorização por paisagismo.</li>
+    </ul>
+
+    <div class="foot-rule"></div>
+    <p class="foot-legal">© 2026 · Maria Fernanda Marques Paisagismo Ecológico · Documento confidencial</p>
+  </div>
+</footer>
+
+
+<!-- ══ INTERSECTION OBSERVER — animações de scroll ════════ -->
+<script>
+(function() {
+  // Todos os elementos com .reveal entram no observer
+  const items = document.querySelectorAll('.reveal');
+
+  if (!items.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Depois que entrou, não precisa mais observar
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,        // 12% do elemento visível já dispara
+      rootMargin: '0px 0px -40px 0px'  // começa 40px antes do fim da tela
+    }
+  );
+
+  items.forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>
