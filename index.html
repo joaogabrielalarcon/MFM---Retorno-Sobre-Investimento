@@ -169,8 +169,8 @@ a:hover { color:var(--terra-dark); border-color:var(--terra); }
 @keyframes sl        { 0%,100%{opacity:.25} 50%{opacity:.65} }
 
 /* ── LAYOUT ─────────────────────────────────────── */
-.sec    { max-width: 880px; margin:0 auto; padding: 88px 48px; }
-.sec-sm { max-width: 660px; margin:0 auto; padding: 88px 48px; }
+.sec    { max-width: 1200px; margin:0 auto; padding: 112px 120px; }
+.sec-sm { max-width: 1200px; margin:0 auto; padding: 112px 120px; }
 
 .bg-nude  { background: var(--nude); }
 .bg-terra { background: var(--terra); }
@@ -210,16 +210,15 @@ a:hover { color:var(--terra-dark); border-color:var(--terra); }
 .quote cite { font-size:10px; font-style:normal; letter-spacing:1.5px; text-transform:uppercase; color:var(--terra-mid); }
 
 /* ── STAT CARDS — sobre nude ────────────────────── */
-.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin:32px 0; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:20px; margin:44px 0; }
 
 .card {
   background: var(--nude);
   border:1px solid var(--nude-dark);
   border-top:2px solid var(--terra);
-  border-radius:2px 2px 8px 8px;
-  padding:24px 20px 20px;
+  border-radius:2px 2px 12px 12px;
+  padding:32px 28px 28px;
   cursor:default;
-  /* hover sutil */
   transition: box-shadow .25s ease;
 }
 .card:hover { box-shadow: 0 12px 40px rgba(158,55,34,.1); }
@@ -239,8 +238,8 @@ a:hover { color:var(--terra-dark); border-color:var(--terra); }
   background: rgba(255,240,229,.09);
   border:1px solid rgba(255,240,229,.15);
   border-top:2px solid var(--nude);
-  border-radius:2px 2px 8px 8px;
-  padding:24px 20px 20px;
+  border-radius:2px 2px 12px 12px;
+  padding:32px 28px 28px;
   cursor:default;
   transition: background .25s ease;
 }
@@ -288,10 +287,10 @@ a:hover { color:var(--terra-dark); border-color:var(--terra); }
 .tbl tr.star td:last-child { color:rgba(255,240,229,.8); font-size:14px; }
 
 /* ── NEURO CARDS ────────────────────────────────── */
-.ngrid { display:grid; grid-template-columns:repeat(3,1fr); gap:11px; margin:32px 0; }
+.ngrid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:44px 0; }
 .ncard {
-  border:1px solid var(--nude-dark); border-radius:8px;
-  padding:18px 15px 15px; background:var(--nude);
+  border:1px solid var(--nude-dark); border-radius:12px;
+  padding:24px 20px 20px; background:var(--nude);
   transition:box-shadow .25s;
   cursor:default; position:relative; overflow:hidden;
 }
@@ -361,7 +360,7 @@ a:hover { color:var(--terra-dark); border-color:var(--terra); }
 
 /* ── RESPONSIVO ─────────────────────────────────── */
 @media (max-width: 768px) {
-  .sec, .sec-sm { padding:68px 24px; }
+  .sec, .sec-sm { padding:80px 24px; }
   .cover { padding:80px 28px 100px; }
   .synth { padding:72px 24px; }
   .footer { padding:52px 24px; }
@@ -377,6 +376,60 @@ a:hover { color:var(--terra-dark); border-color:var(--terra); }
 @media (max-width: 420px) {
   .ngrid { grid-template-columns:1fr; }
 }
+  .sec .lead, .sec-sm .lead { text-align: left; }
+  .sec .eyebrow, .sec-sm .eyebrow { text-align: left; }
+  .sec .sec-num, .sec-sm .sec-num { text-align: left; }
+  .sec .note, .sec-sm .note { text-align: left; }
+  .sec-sm .quote { max-width: 780px; }
+  .sec .pull { max-width: 780px; }
+  /* Grid de 2 colunas lado a lado no desktop */
+  .sec-sm .grid { grid-template-columns: repeat(2, 1fr); }
+  /* Capa mantém centralizado */
+  .cover { text-align: center; }
+  /* Síntese mantém centralizado */
+  .synth { text-align: center; }
+}
+
+  .cover-inner { max-width: 900px; }
+  .cover-h1-main, .cover-h1-em { font-size: clamp(52px, 5.5vw, 80px); }
+  .h2 { font-size: clamp(36px, 3.6vw, 54px); }
+}
+
+
+@media (min-width: 769px) {
+  /* Títulos — centralizados para impacto */
+  .h2 { text-align: center; }
+
+  /* Eyebrow e número de seção — centralizados como âncora */
+  .eyebrow { text-align: center; }
+  .sec-num  { text-align: center; }
+
+  /* Texto corrido — esquerda para leitura fluida */
+  .lead { text-align: left; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .note { text-align: left; }
+
+  /* Citações — centralizadas */
+  .quote { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .quote p { text-align: center; }
+  .pull { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .pull p { text-align: center; }
+
+  /* Cards — texto interno à esquerda */
+  .card { text-align: left; }
+  .card-inv { text-align: left; }
+  .card-num { text-align: left; }
+
+  /* Neuro cards — texto interno à esquerda */
+  .ncard { text-align: left; }
+
+  /* Cadeia — à esquerda por natureza */
+  .chain { text-align: left; }
+
+  /* Capa e síntese — sempre centralizados */
+  .cover { text-align: center; }
+  .synth { text-align: center; }
+}
+
 </style>
 </head>
 <body>
@@ -593,37 +646,24 @@ a:hover { color:var(--terra-dark); border-color:var(--terra); }
     <div class="ncard down reveal pop reveal-d3"><span class="narrow">↓</span><div class="nval">Tensão muscular</div><div class="nname">Relaxamento físico</div><p class="ndesc">Redução de tensão muscular — medições fisiológicas objetivas.</p></div>
   </div>
 
+  <div class="pull reveal">
+    <p>"Em apenas 4 minutos de exposição à natureza, o corpo inicia recuperação fisiológica do estresse — pressão arterial cai, tensão muscular reduz, cortisol diminui. Pacientes com vista para árvores usaram 22% menos analgésicos que pacientes com vista para parede. O comprador que visita um empreendimento com jardim de qualidade chega ao momento da decisão em estado de menor resistência e maior abertura."</p>
+    <cite>— Síntese: Ulrich, 1984 + Ulrich et al., 1991 — Science + Journal of Environmental Psychology</cite>
+  </div>
+
   <div class="grid">
     <div class="card reveal pop reveal-d1">
-      <div class="card-num">4 min</div>
-      <p class="card-text">é o tempo para início da <strong>recuperação fisiológica do estresse</strong> após exposição a natureza — n=120, medido por pressão arterial e frequência de pulso.</p>
-      <p class="card-ref"><a href="https://psych.utah.edu/_resources/documents/psych4130/Ulrich%20et%20al_1991.pdf" target="_blank">Ulrich et al., 1991 — Journal of Environmental Psychology</a></p>
+      <div class="card-num" style="font-size:52px">+12%</div>
+      <p class="card-text"><strong>maior disposição a pagar</strong> em ambientes com arborização de qualidade — a natureza eleva o valor percebido de tudo ao redor.</p>
+      <p class="card-ref"><a href="https://naturewithin.info/CityBiz/BizTreesAll_JFor.pdf" target="_blank">Wolf, K.L. — Journal of Forestry, 2005</a></p>
     </div>
     <div class="card b2 reveal pop reveal-d2">
-      <div class="card-num">22%</div>
-      <p class="card-text"><strong>menos analgésicos</strong> usados por pacientes com vista para árvores versus parede de tijolos — experimento controlado.</p>
-      <p class="card-ref"><a href="https://www.science.org/doi/10.1126/science.6143402" target="_blank">Ulrich, 1984 — Science</a></p>
-    </div>
-  </div>
-
-  <div class="pull reveal">
-    <p>"O comprador que visita um empreendimento com jardim de qualidade passa a maior parte da visita em estado de menor estresse, maior conforto e ativação do sistema de recompensa — o estado ideal para uma decisão de compra favorável."</p>
-    <cite>— Síntese: Ulrich, 1991 + Kaplan &amp; Kaplan, 1989</cite>
-  </div>
-
-  <div class="grid">
-    <div class="card b2 reveal pop reveal-d1">
-      <div class="card-num">+12%</div>
-      <p class="card-text"><strong>maior disposição a pagar</strong> em ambientes com arborização de qualidade. A natureza eleva o valor percebido de tudo ao redor.</p>
+      <div class="card-num" style="font-size:52px">+30%</div>
+      <p class="card-text"><strong>maior percepção de qualidade</strong> em ambientes arborizados — o jardim eleva o valor percebido do imóvel, do corretor e do preço pedido.</p>
       <p class="card-ref"><a href="https://naturewithin.info/CityBiz/BizTreesAll_JFor.pdf" target="_blank">Wolf, K.L. — Journal of Forestry, 2005</a></p>
     </div>
-    <div class="card reveal pop reveal-d2">
-      <div class="card-num">+30%</div>
-      <p class="card-text"><strong>maior percepção de qualidade</strong> em ambientes arborizados. O jardim eleva o valor percebido do imóvel inteiro.</p>
-      <p class="card-ref"><a href="https://naturewithin.info/CityBiz/BizTreesAll_JFor.pdf" target="_blank">Wolf, K.L. — Journal of Forestry, 2005</a></p>
-    </div>
-    <div class="card b3 reveal pop" style="grid-column:1/-1">
-      <div class="card-num" style="font-size:42px">80%</div>
+    <div class="card b3 reveal pop reveal-d3">
+      <div class="card-num" style="font-size:52px">80%</div>
       <p class="card-text"><strong>dos compradores sentem maior conforto</strong> em imóveis com paisagismo bem estabelecido — e 30% percebem o imóvel como de maior qualidade pela área externa.</p>
       <p class="card-ref"><a href="https://www.yourgreenpal.com/blog/how-much-can-great-landscaping-affect-the-value-of-a-home" target="_blank">Survey · Profissionais Imobiliários EUA</a></p>
     </div>
